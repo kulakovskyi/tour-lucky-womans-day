@@ -28,11 +28,27 @@ body
     overflow: hidden
 
 .welcom
+  overflow: hidden
   background: $blue url("../img/bg-welcom-desc.jpg") no-repeat center/100% 100%
   @media screen and (max-width: 1024px)
     background: $blue url("../img/bg-welcom-tab.jpg") no-repeat center/100% 100%
   @media screen and (max-width: 550px)
     background: $blue url("../img/bg-welcom-mob.jpg") no-repeat center/100% 100%
+  &__cloud
+    display: block
+    pointer-events: none
+    content: ''
+    overflow-x: hidden
+    position: absolute
+    width: 1000%
+    left: -900%
+    background: url("../img/cloud-top.png") repeat-x top/contain
+    top: 0
+    height: 60px
+    animation: 500s infinite ease animCloud
+    @media screen and (max-width: 700px)
+      animation: none
+
   &__container
     max-width: 1305px
     margin: 0 auto
@@ -82,6 +98,8 @@ body
     max-width: 880px
     position: relative
     right: -140px
+
+
 
 .prize
   padding: 10px 0 60px
@@ -465,11 +483,12 @@ body
     background: url("../img/right-footer.png") no-repeat center/contain
   &__cloud
     position: absolute
-    width: 100vw
+    width: 1000%
     height: 90px
     bottom: 0
-    left: 0
+    left: -900%
     background: url("../img/cloud-desc.png") repeat-x bottom/contain
+    animation: 500s infinite ease animCloud
     @media screen and (max-width: 1024px)
       background: url("../img/cloud-tab.png") repeat-x bottom/contain
     @media screen and (max-width: 550px)
@@ -518,3 +537,8 @@ body
       background: $green-hover
 
 
+@keyframes animCloud
+  0%
+    background-position: 0 0
+  100%
+    background-position: 100% 0
