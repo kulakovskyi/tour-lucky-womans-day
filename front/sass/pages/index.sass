@@ -1,14 +1,15 @@
-$gray: #E8E8E8
+$gray: #EDEDED
+$new-gray: #E8E8E8
 $magenta: #ff267e
 $green: #05C489
 $green-hover: #05b37c
 $blue: #00003D
 $blue-darken: #00002C
 
-$font-suisse-med: SuisseIntl-Medium, sans-serif
-$font-suisse-semb: SuisseIntl-SemiBold, sans-serif
+$font-suisse-med: SuisseIntl-Medium, sans-serif // 500
+$font-suisse-semb: SuisseIntl-SemiBold, sans-serif // 600
 $font-suisse-bold: SuisseIntl-Bold, sans-serif
-$font-wulkan: WulkanDisplay, sans-serif
+$font-wulkan: WulkanDisplay, sans-serif //
 
 .overflow
   overflow-x: hidden !important
@@ -19,441 +20,238 @@ body
     max-width: 100%
     height: auto
 
-.line
-  stroke-dasharray: 1000
-  stroke-dashoffset: 1000
-  animation: lineAnime 3s infinite both
-
-.dash
-  stroke-dasharray: 20
-
-@keyframes lineAnime
-  0%
-    stroke-dashoffset: 1000
-  100%
-    stroke-dashoffset: 0
-
-.container
-  max-width: 1280px
-  margin: auto
-  position: relative
-  z-index: 2
 
 .fav__page
   background: $blue
   -webkit-tap-highlight-color: transparent
+  &.overflow
+    overflow: hidden
 
-.welcome
-  padding-top: 54px
-  position: relative
-  &:before
-    content: ""
-    width: 509px
-    height: 159px
-    position: absolute
-    top: 0
-    left: 0
-    opacity: .7
-    @media screen and (min-width: 701px)
-      background: url("../img/field-1.svg") no-repeat 0 0/contain
-    @media screen and (max-width: 700px)
-      background: url("../img/field-1-mob.svg") no-repeat 0 0/contain
-  &:after
-    content: ""
-    width: 480px
-    height: 900px
-    position: absolute
-    top: 0
-    right: 0
-    @media screen and (min-width: 701px)
-      background: url("../img/eurocup-1.png") no-repeat 0 0/contain
-    @media screen and (max-width: 700px)
-      background: url("../img/eurocup-1-mob.png") no-repeat 0 0/contain
+.welcom
+  background: $blue url("../img/bg-welcom-desc.jpg") no-repeat center/100% 100%
+  @media screen and (max-width: 1024px)
+    background: $blue url("../img/bg-welcom-tab.jpg") no-repeat center/100% 100%
+  @media screen and (max-width: 550px)
+    background: $blue url("../img/bg-welcom-mob.jpg") no-repeat center/100% 100%
+  &__container
+    max-width: 1305px
+    margin: 0 auto
+    padding: 0
+  &__row
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+  &__info
+    padding: 45px 0 0 0
+    margin: 0 20px 0 0
+    position: relative
+    left: 40px
   &__title
-    &-firstLine,&-secondLine
+    font-family: $font-suisse-semb
+    max-width: 390px
+    text-transform: uppercase
+    margin: 0 0 30px 0
+    color: $gray
+    font-size: 84px
+    line-height: 94px
+    span
+      font-family: $font-wulkan
+      color: $magenta
+  &__text
+    font-family: $font-suisse-med
+    color: $new-gray
+    max-width: 415px
+    font-size: 14px
+    line-height: 28px
+    letter-spacing: 0.01em
+    margin: 0 0 30px 0
+  &__link
+    display: inline-block
+    font-family: $font-suisse-med
+    color: $blue
+    font-size: 20px
+    line-height: 24px
+    padding: 19px 95px 17px
+    border-radius: 4px
+    text-transform: uppercase
+    background: $green
+    transition: background-color .3s ease
+    &:hover
+      background: $green-hover
+  &__image
+    max-width: 880px
+    position: relative
+    right: -140px
+
+.prize
+  padding: 10px 0 60px
+  background: $blue
+  position: relative
+  z-index: 3
+  &__container
+    max-width: 1305px
+    margin: 0 auto
+    padding: 0
+  &__title
+    position: relative
+    left: 40px
+    font-family: $font-wulkan
+    color: $magenta
+    font-size: 60px
+    line-height: 77px
+    letter-spacing: 0.02em
+    text-transform: uppercase
+    margin: 0 0 10px 0
+  &__list
+    max-width: 1160px
+    padding: 0 15px
+    display: flex
+    position: relative
+    justify-content: space-between
+    margin: 0 auto 55px auto
+  &__item
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      top: 0
+      left: 50%
+      transform: translateX(-50%)
+      width: 520px
+      height: 220px
+      z-index: 0
+      background: url('../img/prize-back.png') no-repeat 0 0/contain
+    &:nth-child(1)
+      .prize__item-wrap::after
+        content: ''
+        position: absolute
+        z-index: 4
+        width: 153px
+        height: 115px
+        background: url("../img/prize1.png") no-repeat 0 0/contain
+        top: 60px
+        right: -10px
+    &:nth-child(2)
+      .prize__item-wrap::after
+        content: ''
+        position: absolute
+        z-index: 4
+        width: 170px
+        height: 125px
+        background: url("../img/prize2.png") no-repeat 0 0/contain
+        bottom: -40px
+        right: -20px
+    &:nth-child(3)
+      .prize__item-wrap::after
+        content: ''
+        position: absolute
+        z-index: 4
+        width: 153px
+        height: 135px
+        background: url("../img/prize3.png") no-repeat 0 0/contain
+        top: 30px
+        right: -10px
+
+    &-wrap
+      position: relative
+      z-index: 3
       display: flex
       align-items: center
-      p:not(.wulkan)
-        font-family: $font-suisse-semb
-        font-size: 64px
-        line-height: 64px
-        color: $gray
-        letter-spacing: .02em
-        text-transform: uppercase
-        position: relative
-      p.wulkan
-        font-family: $font-wulkan
-        font-size: 50px
-        line-height: 50px
-        color: $magenta
-        padding: 7px 33px 7px
-        border-radius: 50px
-        border: 2px solid $magenta
-        margin-left: 12px
-    &-firstLine
-      margin-bottom: 27px
-      p
-        &:nth-child(1)
-          padding-right: 94px
-          margin-right: 20px
-          &:after
-            content: ""
-            background: url("../img/title-ball.svg") no-repeat 0 0/contain
-            width: 70px
-            height: 70px
-            position: absolute
-            top: -4px
-            right: 0
-    &-secondLine
-      p
-        &:nth-child(1)
-          padding-left: 68px
-          &:before
-            content: ""
-            background: url("../img/title-arrow.svg") no-repeat 0 0/contain
-            width: 54px
-            height: 54px
-            position: absolute
-            top: 5px
-            left: 0
-
-.welcome,.footer
-  &__info
-    display: flex
-    justify-content: space-between
-    align-items: flex-start
-    margin-top: 25px
-    &-left
-      max-width: 520px
-    &-title
+      justify-content: center
+      min-width: 268px
+      margin: 0 0 20px 0
+      height: 220px
+      background: url("../img/prize-bg.png") no-repeat 0 0/contain
+    &-number
+      margin-top: 80px
+      margin-left: -30px
+      font-family: $font-wulkan
+      font-style: normal
+      font-size: 80px
+      line-height: 93px
+      color: $gray
+    &-text
       font-family: $font-suisse-semb
-      font-size: 18px
-      line-height: 28px
-      color: $magenta
+      font-size: 20px
+      line-height: 26px
+      color: $new-gray
+      letter-spacing: 0.04em
+      text-transform: uppercase
+      max-width: 300px
+      text-align: center
+      margin: 0 auto
+  &__drop
+    max-width: 900px
+    width: calc(100% - 80px)
+    margin: 0 auto 0
+    border: none
+    cursor: pointer
+    outline: none!important
+    background: #33084A
+    position: relative
+    border-radius: 4px
+    text-align: left
+    &:before,&:after
+      content: ""
+      background: $magenta
+      width: 4px
+      height: 18px
+      display: block
+      position: absolute
+      top: 32px
+    &[open]
+      &:before
+        transform: rotate(-45deg)
+      &:after
+        transform: rotate(45deg)
+    &:before
+      right: 33px
+      transform: rotate(45deg)
+    &:after
+      transform: rotate(-45deg)
+      right: 43px
+    &-title
+      font-family: $font-suisse-med
+      font-size: 24px
+      line-height: 24px
+      color: $gray
+      text-transform: uppercase
       letter-spacing: .02em
+      padding: 27px 26px 25px
+      position: relative
+    summary::-webkit-details-marker
+      display: none
+    > summary
+      list-style: none
     &-txt
       font-family: $font-suisse-med
       font-size: 14px
       line-height: 28px
       color: $gray
-      letter-spacing: .01em
-      margin: 43px 0 22px
-    &-btn
-      font-family: $font-suisse-semb
-      font-size: 20px
-      text-transform: uppercase
-      letter-spacing: .04em
-      color: $blue
-      background: $green
-      padding: 18px 95px 17px
-      border-radius: 4px
-      display: inline-block
-      &:hover
-        background: $green-hover
-    &-right
-      max-width: 695px
-      margin: -80px -70px 0 0
-      position: relative
-      flex-shrink: 0
-    &-circle
-      width: 194px
-      height: 194px
-      background: $blue
-      border-radius: 50%
-      position: absolute
-      top: 102px
-      left: -43px
-      z-index: 1
-      &-crown
-        width: 122px
-        height: 122px
-        background: $magenta
-        border-radius: 50%
-        position: absolute
-        top: 0
-        bottom: 0
-        left: 0
-        right: 0
-        margin: auto
-        &:before
-          content: ""
-          background: url("../img/crown.svg") no-repeat 0 0/contain
-          width: 52px
-          height: 40px
-          position: absolute
-          top: 0
-          bottom: 0
-          left: 0
-          right: 0
-          margin: auto
-      &-txt
-        background: url("../img/circle.png") no-repeat 0 0/contain
-        width: 194px
-        height: 194px
-        animation: circleRotate 10s linear infinite
-    &-sticker
-      background: url("../img/sticker.png") no-repeat 0 0/contain
-      width: 206px
-      height: 244px
-      position: absolute
-      bottom: 60px
-      left: 11px
-      z-index: 1
-      display: flex
-      flex-direction: column
-      align-items: center
-      padding: 32px 20px 0
-      &-icon
-        background: url("../img/sticker-icon.svg") no-repeat 0 0/contain
-        width: 90px
-        height: 90px
-      &-txt
-        font-family: $font-suisse-bold
-        font-size: 16px
-        line-height: 21px
-        color: $gray
-        text-transform: uppercase
-        text-align: center
-        margin-top: 14px
-    &-img
-      position: relative
-      &-pen
-        background: url("../img/pencil.png") no-repeat 0 0/contain
-        width: 112px
-        height: 332px
-        position: absolute
-        z-index: 1
-        &:nth-of-type(1)
-          bottom: 73px
-          left: 255px
-        &:nth-of-type(2)
-          top: -52px
-          right: 35px
-          transform: rotate(210deg)
-      &-beacon
-        width: 18px
-        height: 18px
-        background: $magenta
-        border-radius: 50%
-        position: absolute
-        &:before
-          content: ""
-          background: rgba($magenta,.5)
-          width: 18px
-          height: 18px
-          border-radius: 50%
-          position: absolute
-          top: 0
-          left: 0
-          animation: beaconPulse 2s ease-in-out infinite
-        &:after
-          content: ""
-          background: rgba($magenta,.5)
-          width: 18px
-          height: 18px
-          border-radius: 50%
-          position: absolute
-          top: 0
-          left: 0
-          animation: 2s beaconPulse2 .5s ease-in-out infinite
-        &:nth-of-type(1)
-          top: 232px
-          left: 355px
-        &:nth-of-type(2)
-          top: 224px
-          right: 212px
+      letter-spacing: .02em
+      padding: 30px
+      background: #33084A
+      border-top: 1px solid $magenta
+      span
+        display: block
+        padding-left: 15px
+      .retreat1
+        padding-left: 30px
 
-.how
-  margin-top: -200px
-  padding-bottom: 107px
-  position: relative
-  &:before
-    content: ""
-    background: url("../img/eurocup-2.png") no-repeat 0 0/contain
-    width: 357px
-    height: 661px
-    position: absolute
-    bottom: -322px
-    left: 267px
-    z-index: 1
-  &:after
-    content: ""
-    background: url("../img/field-2.svg") no-repeat 0 0/contain
-    width: 489px
-    height: 302px
-    position: absolute
-    bottom: -152px
-    right: 275px
-    z-index: 1
-  &__title
-    background: url("../img/kako.png") no-repeat 0 0/contain
-    width: 438px
-    height: 85px
-  &__list
-    margin-top: 36px
-    display: flex
-    &-item
-      display: flex
-      flex-direction: column
-      position: relative
-      &-icon
-        margin: 0 auto
-      &-txt
-        margin-top: 34px
-        display: flex
-        flex-direction: column
-        align-items: flex-start
-        p
-          font-family: $font-suisse-semb
-          font-size: 20px
-          line-height: 20px
-          color: $gray
-          background: $magenta
-          padding: 6px 7px 4px
-          text-transform: uppercase
-          letter-spacing: .04em
-        p+p
-          margin-top: -2px
-      &:nth-child(1)
-        width: 215px
-        margin: 0 218px 0 23px
-        &:after
-          content: ""
-          background: url("../img/step-arrow-1.svg") no-repeat 0 0/contain
-          width: 200px
-          height: 103px
-          position: absolute
-          left: 140%
-          top: 54px
-          animation: moveArrow 3s linear infinite
-        .how__list-item-icon
-          background: url("../img/step-1.svg") no-repeat 0 0/contain
-          width: 190px
-          height: 181px
-        .how__list-deco
-          top: 137px
-          left: 80%
-          .round1
-            ellipse
-              animation: draw 5s 1s infinite linear
-          .round2
-            ellipse
-              animation: draw 5s 3s infinite linear
-      &:nth-child(2)
-        width: 220px
-        margin: 207px 273px 0 0
-        &:after
-          content: ""
-          background: url("../img/step-arrow-2.svg") no-repeat 0 0/contain
-          width: 204px
-          height: 128px
-          position: absolute
-          left: 119%
-          top: 55px
-          animation: moveArrow 3s linear infinite
-        .how__list-item-icon
-          background: url("../img/step-2.svg") no-repeat 0 0/contain
-          width: 188px
-          height: 189px
-        .how__list-deco
-          top: 2px
-          left: 74%
-          .dashed
-            transform: rotate(-227deg) scale(0.3)
-          .round1
-            top: 20px
-            left: 81px
-            ellipse
-              animation: draw 5s 2s infinite linear
-          .round2
-            top: -75px
-            left: 130px
-            ellipse
-              animation: draw 5s 5s infinite linear
-          .cross1
-            left: 117px
-            top: -20px
-            transform: rotate(68deg)
-          .cross2
-            right: 156px
-            left: auto
-            top: -54px
-          .cross3
-            right: 133px
-            left: auto
-            top: -21px
-            transform: rotate(-20deg)
-      &:nth-child(3)
-        margin-top: 140px
-        &:before
-          content: ""
-          background: url("../img/result-icons.svg") no-repeat 0 0/contain
-          width: 102px
-          height: 150px
-          position: absolute
-          top: -69px
-          right: -85px
-          transform: rotate(128deg)
-          opacity: .5
-        &:after
-          content: ""
-          background: url("../img/top-icons.svg") no-repeat 0 0/contain
-          width: 58px
-          height: 88px
-          position: absolute
-          top: 117px
-          right: -96px
-        .how__list-item-icon
-          background: url("../img/step-3.svg") no-repeat 0 0/contain
-          width: 197px
-          height: 187px
-    &-deco
-      position: absolute
-      opacity: .5
-      .dashed
-        transform: rotate(22deg) scale(0.35)
-      .round
-        stroke: $magenta
-        stroke-width: 2px
-        fill: none
-        position: absolute
-        .ellipse
-          stroke-linejoin: round
-          stroke-linecap: round
-          opacity: 0
-      .round1
-        top: 13px
-        left: 98px
-      .round2
-        bottom: -25px
-        right: 142px
-      .cross
-        position: absolute
-      .cross1
-        left: 94px
-        bottom: -21px
-      .cross2
-        left: 130px
-        bottom: -7px
-        animation: crossRotate 6s linear infinite
-      .cross3
-        left: 193px
-        bottom: -53px
 
-.how__drop,
 .tableResults__drop
-  max-width: 800px
-  margin: 58px auto 0
-  border: 2px solid $green
+  max-width: 900px
+  width: calc(100% - 80px)
+  margin: 0 auto 0
+  background: #33084A
   cursor: pointer
   outline: none!important
-  background: $blue
   position: relative
   border-radius: 4px
   text-align: left
   &:before,&:after
     content: ""
-    background: $green
+    background: $magenta
     width: 4px
     height: 18px
     display: block
@@ -479,15 +277,6 @@ body
     letter-spacing: .02em
     padding: 27px 26px 25px
     position: relative
-    &:after
-      content: ""
-      background: $green
-      width: 2px
-      height: 100%
-      position: absolute
-      right: 80px
-      top: 0
-      bottom: 0
   summary::-webkit-details-marker
     display: none
   > summary
@@ -499,28 +288,45 @@ body
     color: $gray
     letter-spacing: .02em
     padding: 30px
-    background: $blue
-    border-top: 1px solid #05C489
+    background: #33084A
+    border-top: 1px solid $magenta
+    p
+      font-family: $font-suisse-med
+      font-size: 14px
+      line-height: 28px
     span
       display: block
       padding-left: 15px
     .retreat1
       padding-left: 30px
 
+
 .tableResults
-  background: $blue-darken
-  padding: 50px 0 0
+  background: $blue
   text-align: center
   position: relative
-  &:after
-    content: ""
-    background: url("../img/eurocup-3.png") no-repeat 0 0/contain
-    width: 357px
-    height: 547px
+  z-index: 3
+  &::before
+    pointer-events: none
+    content: ''
     position: absolute
-    top: 218px
-    right: 80px
+    width: 100vw
+    min-height: 180%
+    left: 0
+    z-index: 0
+    top: -42%
+    background: url("../img/bg-table-desc.svg") no-repeat center/cover
+    @media screen and (max-width: 1024px)
+      background: url("../img/bg-table-table.svg") no-repeat center/cover
+      top: -4%
+      min-height: 40%
+  &__container
+    max-width: 1305px
+    margin: 0 auto
+    padding: 0
   &__title
+    position: relative
+    z-index: 3
     font-family: $font-suisse-bold
     font-size: 50px
     line-height: 50px
@@ -528,33 +334,20 @@ body
     text-transform: uppercase
     text-align: center
     letter-spacing: .01em
+    margin: 0 0 30px 0
   &__wrap
-    margin: 41px auto 0
-    max-width: 994px
+    margin: 0 auto 40px auto
+    max-width: 1004px
+    padding: 0 15px
     text-align: left
     position: relative
-    &:before
-      content: ""
-      background: url("../img/circle.png") no-repeat 0 0/contain
-      width: 194px
-      height: 194px
-      animation: circleRotate 10s linear infinite
-      position: absolute
-      top: -74px
-      left: -74px
-    &:after
-      content: ""
-      background: url("../img/result-icons.svg") no-repeat 0 0/contain
-      width: 92px
-      height: 138px
-      position: absolute
-      bottom: -28px
-      left: -143px
-      animation: moveArrow 3s linear infinite
   &__head
-    border: 3px solid $magenta
-    background: $blue
+    background: #00003D
+    border: 2px solid #FF267E
+    box-shadow: 0px 0px 30px #FF267E, inset 0px 0px 30px #FF267E
+    border-radius: 4px
     margin-right: 10px
+    margin-bottom: 25px
     position: relative
     &-list
       display: flex
@@ -582,7 +375,7 @@ body
     position: relative
     max-height: 495px
     font-size: 18px
-    background: $blue-darken
+    background: transparent
     &::-webkit-scrollbar
       width: 4px
       height: 80%
@@ -598,7 +391,7 @@ body
       display: flex
       align-items: center
       padding: 22px 20px 18px 24px
-      background: #33083C
+      background: #33084A
       color: $gray
       text-align: start
       span
@@ -644,118 +437,84 @@ body
         &:after
           background: url("../img/place-icon-3.svg") no-repeat 0 0/contain
   &__drop
-    margin: 54px 0 -40px
     display: inline-block
     vertical-align: middle
-    width: 100%
+
 
 .footer
-  padding: 135px 0 0
+  padding: 123px 0 90px
+  background: url("../img/bg-footer.jpg") no-repeat 50% 0/cover
   position: relative
-  overflow: hidden
-  &:before
-    content: ""
-    background: url("../img/field-3.jpg") no-repeat 0 0/contain
-    width: 546px
-    height: 628px
+  &::after
+    content: ''
     position: absolute
+    z-index: 0
+    width: 530px
+    height: 450px
+    left: -15px
+    bottom: 0
+    background: url("../img/left-footer.png") no-repeat center/contain
+  &::before
+    content: ''
+    position: absolute
+    z-index: 0
+    width: 530px
+    height: 450px
+    right: -15px
+    bottom: 0
+    background: url("../img/right-footer.png") no-repeat center/contain
+  &__cloud
+    position: absolute
+    width: 100vw
+    height: 90px
     bottom: 0
     left: 0
-    opacity: .6
-  &:after
-    content: ""
-    background: url("../img/eurocup-4.png") no-repeat 0 0/contain
-    width: 357px
-    height: 270px
-    position: absolute
-    bottom: 0
-    left: 0
-    right: 0
-    margin: auto
+    background: url("../img/cloud-desc.png") repeat-x bottom/contain
+    @media screen and (max-width: 1024px)
+      background: url("../img/cloud-tab.png") repeat-x bottom/contain
+    @media screen and (max-width: 550px)
+      background: none
+      display: none
+  &__container
+    max-width: 660px
+    padding: 0 15px
+    margin: 0 auto
+  &__row
+    position: relative
+    z-index: 3
+    display: flex
+    flex-direction: column
+    align-items: center
   &__title
     font-family: $font-suisse-semb
-    font-size: 50px
-    line-height: 65px
+    text-align: center
     color: $gray
+    font-size: 60px
+    line-height: 77px
     text-transform: uppercase
-    letter-spacing: .026em
-  &__info
-    margin-top: 19px
-    &-left
-      position: relative
-      &:before
-        content: ""
-        background: url("../img/footer-icons-1.svg") no-repeat 0 0/contain
-        width: 111px
-        height: 131px
-        position: absolute
-        bottom: -93px
-        right: 78px
-        animation: moveArrow 3s linear infinite
-    &-right
-      margin: -150px -108px -60px 0
-    &-txt
-      margin: 24px 0 31px
-    &-sticker
-      bottom: 133px
-      left: 8px
-    &-circle
-      top: -64px
-      left: 317px
-      &:before
-        content: ""
-        background: url("../img/footer-icons-2.svg") no-repeat 0 0/contain
-        width: 71px
-        height: 143px
-        position: absolute
-        top: -28px
-        right: -107px
-        animation: moveArrow 3s linear infinite
+    margin: 0 0 15px 0
+    span
+      font-family: $font-wulkan
+      color: $magenta
+  &__text
+    font-family: $font-suisse-med
+    text-align: center
+    font-size: 14px
+    line-height: 28px
+    color: $new-gray
+    margin: 0 0 30px 0
+  &__link
+    display: inline-block
+    font-family: $font-suisse-med
+    color: $blue
+    font-size: 20px
+    line-height: 24px
+    padding: 19px 95px 17px
+    border-radius: 4px
+    text-transform: uppercase
+    background: $green
+    transition: background-color .3s ease
+    &:hover
+      background: $green-hover
 
 
-@keyframes beaconPulse
-  0%
-    transform: scale(1)
-    opacity: 1
-  50%
-    transform: scale(1.7)
-  100%
-    opacity: 0
-
-@keyframes beaconPulse2
-  0%
-    transform: scale(1)
-    opacity: 1
-  50%
-    transform: scale(2.2)
-  100%
-    opacity: 0
-
-@keyframes circleRotate
-  to
-    transform: rotate(-360deg)
-
-@keyframes moveArrow
-  0%
-    transform: rotate(-4deg)
-  50%
-    transform: rotate(7deg)
-  100%
-    transform: rotate(-4deg)
-
-@keyframes draw
-  0%
-    opacity: 1
-    stroke-dashoffset: 300px
-    stroke-dasharray: 300px
-  100%
-    opacity: 1
-    stroke-dashoffset: 0
-
-@keyframes crossRotate
-  0%
-    transform: rotate(0)
-  50%
-    transform: rotate(90deg)
-  100%
-    transform: rotate(0)
