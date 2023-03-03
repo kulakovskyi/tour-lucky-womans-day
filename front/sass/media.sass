@@ -1,5 +1,5 @@
 @media screen and (max-width: 1260px)
-  .welcom
+  .welcome
     &__image
       right: -40px
       min-width: 76%
@@ -7,7 +7,7 @@
 
 
 @media screen and (max-width: 1024px)
-  .welcom
+  .welcome
     &__title
       font-size: 60px
       line-height: 70px
@@ -17,8 +17,14 @@
       order: 2
       margin: 0 0 30px 0
       align-self: flex-start
-    &__text
+    &__subtitle
+      min-width: 300px
       order: 3
+      font-size: 30px
+      line-height: 30px
+      margin: 0 0 8px 0
+    &__text
+      order: 4
       margin: 0
     &__image
       min-width: 62%
@@ -29,13 +35,13 @@
       flex-direction: column
 
 @media screen and (max-width: 890px)
-  .welcom
+  .welcome
     &__image
       min-width: 62%
       right: 50px
 
 @media screen and (max-width: 790px)
-  .welcom
+  .welcome
     &__info
       left: 20px
     &__image
@@ -43,14 +49,14 @@
       right: 90px
 
 @media screen and (max-width: 750px)
-  .welcom
+  .welcome
     &__info
       min-width: 267px
     &__image
       right: 0
 
 @media screen and (max-width: 700px)
-  .welcom
+  .welcome
     &__row
       flex-direction: column-reverse
     &__image
@@ -68,6 +74,12 @@
       max-width: 515px
       text-align: center
       margin: 0 auto 30px auto
+    &__subtitle
+      text-align: center
+      font-size: 32px
+      padding: 0 15px
+      line-height: 40px
+      margin: 0 auto 10px auto
     &__link
       font-size: 20px
       line-height: 24px
@@ -82,11 +94,22 @@
       margin: 0 auto 0 auto
 
 @media screen and (max-width: 550px)
-  .welcom
+  .welcome
+    &::before
+      content: ''
+      position: absolute
+      width: 100%
+      height: 1100px
+      background: url('../img/blur-mob.png') no-repeat center/100% 100%
+      z-index: 10
     &__image
       right: 0
+      position: relative
+      z-index: 12
     &__info
       margin-top: -74px
+      position: relative
+      z-index: 12
     &__title
       max-width: 430px
       font-size: 42px
@@ -94,7 +117,7 @@
       margin: 0 auto 7px auto
 
 @media screen and (max-width: 430px)
-  .welcom
+  .welcome
     &__link
       width: calc(100% - 30px)
 
@@ -352,16 +375,18 @@
 
 @media screen and (max-width: 720px)
   .footer
+    padding: 360px 0 70px
     &::before
       width: 100%
+      top: -10px
 
 @media screen and (max-width: 550px)
   .footer
-    padding: 347px 0 30px
+    padding: 307px 0 30px
     background: url("../img/bg-footer-mob.jpg") no-repeat center/100% 100%
     &::before
       width: 100%
-      top: -20px
+      top: -30px
     &::after
       content: ''
       left: 50%
@@ -369,7 +394,7 @@
       bottom: auto
       width: 100%
       height: 320px
-      top: 20px
+      top: 10px
       z-index: 0
       transform: translateX(-50%)
       background: url("../img/touch-mob.png") no-repeat center/contain
@@ -389,27 +414,27 @@
 
 @media screen and (max-width: 466px)
   .footer
-    padding: 284px 0 30px
+    padding: 253px 0 30px
     &::before
-      top: -50px
+      top: -60px
     &::after
-      top: -10px
+      top: -20px
 
 @media screen and (max-width: 406px)
   .footer
-    padding: 244px 0 30px
-    &::before
-      top: -70px
-    &::after
-      top: -30px
-
-@media screen and (max-width: 365px)
-  .footer
-    padding: 221px 0 30px
+    padding: 215px 0 30px
     &::before
       top: -80px
     &::after
       top: -40px
+
+@media screen and (max-width: 365px)
+  .footer
+    padding: 193px 0 30px
+    &::before
+      top: -90px
+    &::after
+      top: -50px
 
 
 
